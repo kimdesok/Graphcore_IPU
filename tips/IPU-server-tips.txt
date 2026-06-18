@@ -1,0 +1,39 @@
+-git needs to be installed in the server's Python env.
+-In the terminal of Jupyter Lab on my PC provided by the server's Backend application,
+$ python -m pip install --upgrade jupyterlab-git
+
+$ git --version
+
+#Explicitly Enable the Extension
+$ jupyter server extension enable --user --py jupyterlab-git
+
+# Setting the version control env.
+$ git config --global user.name "kimdesok"
+$ git config --global user.email "kimdesok@yahoo.com"
+$ ssh-keygen -t ed25519 -C "kimdesok@yahoo.com"
+$ cat ~/.ssh/id_ed25519.pub
+
+# Copy the text and submit it to Github's New SSH Key 
+
+# Daily workflow
+$ git clone git@github.com:kimdesok/Graphcore_IPU.git
+
+#a Personal Access Token (PAT) on GitHub
+Graphcore IPU token (PAT)
+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
+
+# SSH keys
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMGGsUukYRx66KYxJi3FhAg3/fQGPZLIn+nPtDq3+Jh5 kimdesok@yahoo.com
+
+$ git clone https://github.com/kimdesok/Graphcore_IPU.git
+-> Now you have a local folder called Graphcore_IPU
+
+git pull origin main
+
+git status
+
+git add . 
+
+git commit -m "Describe your code updates here"
+
+git push origin main

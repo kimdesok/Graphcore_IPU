@@ -1,0 +1,59 @@
+$virtualenv -p python3 poptorch_test
+$source poptorch_test/bin/activate
+
+# PopTorch requires the underlying runtime libraries 
+# to be actively sourced in your path before execution.
+$source /opt/poplar/enable.sh
+$source /opt/popart/enable.sh
+
+# Install the PopTorch .whl - cannot be performed.
+$pip install <path_to_sdk>/poptorch_<version>.whl
+
+but could not locate the file yet.
+Graphcore does not provide this file? 
+(answer) Poplar SDK should be downloaded and prepared to
+look for the .whl that is included in the SDK.
+
+# Ubuntu ver. should be known beforehand
+$cat /etc/os-release
+
+VERSION_ID="20.04"
+
+# In case the poptorch has been already installed, run this to check for confirmation
+$python3 -c "import poptorch; print(poptorch.__version__)"
+
+
+# 1. Create your clean personal workspace environment
+$virtualenv ~/mytest/poptorch_env
+$source ~/mytest/poptorch_env/bin/activate
+
+# 2. Open the golden pipeline to your admin's pre-built AI packages
+$echo "/opt/pytorch/lib/python3.8/site-packages" > ~/mytest/poptorch_env/lib/python3.8/site-packages/admin_packages.pth
+
+# 3. Ensure the underlying hardware drivers are awake in your session
+$source /opt/poplar/enable.sh
+
+# 4. Confirm the hardware is physically talking to your Python environment
+$python3 -c "import poptorch; print('IPUs Available:', poptorch.ipuHardwareIsAvailable())"
+
+# Kernels
+$python -m ipykernel install --user --name poptorch_test --display-name "Poptorch 3.3. "
+
+
+# Terminal set up
+
+$cat << 'EOF' >> ~/mytest/poptorch_test/bin/activate
+
+# --- GRAPHCORE AUTO-INITIALIZATION ---
+# Only source the drivers if they aren't already loaded in this session
+if [ -z "$POPLAR_SDK_ENABLED" ]; then
+    if [ -f /opt/poplar/enable.sh ]; then
+        source /opt/poplar/enable.sh > /dev/null 2>&1
+        source /opt/popart/enable.sh > /dev/null 2>&1
+        echo "⚡ Graphcore Poplar SDK 3.3.0 automatically loaded!"
+    fi
+fi
+EOF
+
+
+$source ~/mytest/poptorch_test/bin/activate
