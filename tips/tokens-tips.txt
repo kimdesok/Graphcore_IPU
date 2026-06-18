@@ -1,0 +1,15 @@
+#a Personal Access Token (PAT) on GitHub
+Graphcore IPU token (PAT)
+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
+
+# SSH keys
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMGGsUukYRx66KYxJi3FhAg3/fQGPZLIn+nPtDq3+Jh5 kimdesok@yahoo.com
+
+#Explicitly Enable the Extension
+$ jupyter server extension enable --user --py jupyterlab-git
+
+# Daily workflow
+$ git clone git@github.com:kimdesok/Graphcore_IPU.git
+
+$ git clone https://github.com/kimdesok/Graphcore_IPU.git
+-> Now you have a local folder called Graphcore_IPU

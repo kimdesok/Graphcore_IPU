@@ -4,15 +4,6 @@ $ python -m pip install --upgrade jupyterlab-git
 
 $ git --version
 
-#Explicitly Enable the Extension
-$ jupyter server extension enable --user --py jupyterlab-git
-
-# Daily workflow
-$ git clone git@github.com:kimdesok/Graphcore_IPU.git
-
-$ git clone https://github.com/kimdesok/Graphcore_IPU.git
--> Now you have a local folder called Graphcore_IPU
-
 git pull origin main
 
 git status
