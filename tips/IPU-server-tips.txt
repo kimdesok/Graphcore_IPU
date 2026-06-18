@@ -7,14 +7,6 @@ $ git --version
 #Explicitly Enable the Extension
 $ jupyter server extension enable --user --py jupyterlab-git
 
-# Setting the version control env.
-$ git config --global user.name "kimdesok"
-$ git config --global user.email "kimdesok@yahoo.com"
-$ ssh-keygen -t ed25519 -C "kimdesok@yahoo.com"
-$ cat ~/.ssh/id_ed25519.pub
-
-# Copy the text and submit it to Github's New SSH Key 
-
 # Daily workflow
 $ git clone git@github.com:kimdesok/Graphcore_IPU.git
 
